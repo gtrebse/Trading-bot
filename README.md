@@ -1,4 +1,4 @@
-# Trade bot framework
+# Trading bot framework
 
 This is a Python project that includes a trading bot, data analysis, and various trading strategies.
 
@@ -8,7 +8,7 @@ The project has the following structure:
 
 - `main.py`: The main entry point of the application.
 - `analysis.ipynb`: A Jupyter notebook for data analysis.
-- `data/keys.py`: Add relevant keys for connecting and trading on relevant exchanges
+- `data/keys.py`: Add relevant keys for connecting and trading on relevant exchanges.
 - `src/db_helper.py`: Contains helper functions for database operations.
 - `src/trade_bot.py`: Contains the implementation of the trading bot.
 - `trading_strategies/example_strategy.py`: Contains an example trading strategy. Add additional trading strategies to this folder.
@@ -22,7 +22,7 @@ The trading strategy function is kept separate in order not to expose it to git.
 For example, a simple trading strategy might look like this:
 
 ```python
-def simple_strategy(sefl, orderbook1, orderbook2):
+def simple_strategy(self, orderbook1, orderbook2):
     if orderbook1['price'] < orderbook2['moving_average']:
         # Perform Buy
     else:
