@@ -1,4 +1,4 @@
-# Project Title
+# Trade bot framework
 
 This is a Python project that includes a trading bot, data analysis, and various trading strategies.
 
