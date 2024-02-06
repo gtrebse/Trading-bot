@@ -16,6 +16,7 @@ def init_db(ticker):
             ask REAL,
             bid REAL,
             ratio REAL,
+            profit REAL,
             timestamp REAL
         )
     ''')
@@ -23,14 +24,14 @@ def init_db(ticker):
     connection.close()
 
 # Function to log a trade to the SQLite database for the given ticker
-def log_trade(ticker, action1, action2, ask, bid, ratio):
+def log_trade(ticker, action1, action2, ask, bid, ratio, profit):
     db_name = f'./data/arbitrage_opportunities.db'
     table_name = f'pair_{ticker}'
     connection = sqlite3.connect(db_name)
     cursor = connection.cursor()
     cursor.execute(f'''
-        INSERT INTO {table_name} (ticker, action1, action2, ask, bid, ratio, timestamp)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-    ''', (ticker, action1, action2, ask, bid, ratio, time.time()))
+        INSERT INTO {table_name} (ticker, action1, action2, ask, bid, ratio, profit, timestamp)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (ticker, action1, action2, ask, bid, ratio, profit, time.time()))
     connection.commit()
     connection.close()
